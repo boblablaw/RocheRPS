@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Created by Exporter version 1.0 at 2015-04-06 09:45:24.150 GMT-4--><!--Note: Components marked as 'debug' have not been removed from the call flow.--><scxml xmlns:icview="http://www.intervoice.com/sce/icview"
+<!--Created by Exporter version 1.0 at 2015-04-07 14:00:47.501 GMT-4--><!--Note: Components marked as 'debug' have not been removed from the call flow.--><scxml xmlns:icview="http://www.intervoice.com/sce/icview"
        xmlns:jms="http://www.intervoice.com/sce/action/jms"
        xmlns:mim="http://www.intervoice.com/sce/action/mim"
        xmlns:scripting="http://www.intervoice.com/sce/action/scripting"
@@ -428,7 +428,7 @@
             <icview:log text="action=exit, type=Log, name=, id=log_xavfey, document=/RocheRPS/applications/voice/VB_RP9050_TransferMessages.scxml"
                         nolog="true"/>
          </onexit>
-         <transition cond="hasNoError()" target="if_xuhwer">
+         <transition cond="hasNoError()" target="if_madkis">
             <icview:log text="action=leg:default, type=Log, name=, id=log_xavfey, document=/RocheRPS/applications/voice/VB_RP9050_TransferMessages.scxml"/>
          </transition>
       </state>
@@ -545,7 +545,7 @@
                   <vca:element name="'termtimeout'" expr="'0.4'" type="'prop'"/>
                </vca:collect>
             </onentry>
-            <transition event="vca:success" target="if_qujrek">
+            <transition event="vca:success" target="if_doxnuz">
                <assign location="intv_eventName" expr="'Success'"/>
                <assign location="intv_eventData" expr="_eventdata"/>
                <assign location="dummyResultVar" expr="_eventdata"/>
@@ -553,7 +553,7 @@
                   <icview:result name="resultVariable" expr="dummyResultVar"/>
                </icview:log>
             </transition>
-            <transition event="vca:error.general" target="if_qujrek">
+            <transition event="vca:error.general" target="if_doxnuz">
                <assign location="intv_eventName" expr="'Ignore'"/>
                <assign location="intv_eventData" expr="_eventdata"/>
                <assign location="dummyResultVar" expr="_eventdata"/>
@@ -561,7 +561,7 @@
                   <icview:result name="resultVariable" expr="dummyResultVar"/>
                </icview:log>
             </transition>
-            <transition event="vca:error.unhandled" target="if_qujrek">
+            <transition event="vca:error.unhandled" target="if_doxnuz">
                <assign location="intv_eventName" expr="'Ignore'"/>
                <assign location="intv_eventData" expr="_eventdata"/>
                <assign location="dummyResultVar" expr="_eventdata"/>
@@ -569,7 +569,7 @@
                   <icview:result name="resultVariable" expr="dummyResultVar"/>
                </icview:log>
             </transition>
-            <transition event="vca:error.reco.maxnomatch" target="if_qujrek">
+            <transition event="vca:error.reco.maxnomatch" target="if_doxnuz">
                <assign location="intv_eventName" expr="'Ignore'"/>
                <assign location="intv_eventData" expr="_eventdata"/>
                <assign location="dummyResultVar" expr="_eventdata"/>
@@ -577,7 +577,7 @@
                   <icview:result name="resultVariable" expr="dummyResultVar"/>
                </icview:log>
             </transition>
-            <transition event="vca:error.reco.maxnoinput" target="if_qujrek">
+            <transition event="vca:error.reco.maxnoinput" target="if_doxnuz">
                <assign location="intv_eventName" expr="'Ignore'"/>
                <assign location="intv_eventData" expr="_eventdata"/>
                <assign location="dummyResultVar" expr="_eventdata"/>
@@ -585,7 +585,7 @@
                   <icview:result name="resultVariable" expr="dummyResultVar"/>
                </icview:log>
             </transition>
-            <transition event="vca:error.reco.maxspeechtimeout" target="if_qujrek">
+            <transition event="vca:error.reco.maxspeechtimeout" target="if_doxnuz">
                <assign location="intv_eventName" expr="'Ignore'"/>
                <assign location="intv_eventData" expr="_eventdata"/>
                <assign location="dummyResultVar" expr="_eventdata"/>
@@ -593,7 +593,7 @@
                   <icview:result name="resultVariable" expr="dummyResultVar"/>
                </icview:log>
             </transition>
-            <transition event="vca:error.reco.maxerrors" target="if_qujrek">
+            <transition event="vca:error.reco.maxerrors" target="if_doxnuz">
                <assign location="intv_eventName" expr="'Ignore'"/>
                <assign location="intv_eventData" expr="_eventdata"/>
                <assign location="dummyResultVar" expr="_eventdata"/>
@@ -602,125 +602,6 @@
                </icview:log>
             </transition>
          </state>
-      </state>
-      <state id="calc_xocfat">
-         <onentry>
-            <icview:log text="action=entry, type=Calculate, name=, id=calc_xocfat, document=/RocheRPS/applications/voice/VB_RP9050_TransferMessages.scxml"/>
-            <assign location="_ws.start_url"
-                    expr="_ws.defaultServer(_ws.session.connection.host.toLowerCase())"/>
-            <assign location="_ws.next_vxml_url" expr="_ws.start_url+_ws.appStartAccuChekURL"/>
-         </onentry>
-         <onexit>
-            <icview:log text="action=exit, type=Calculate, name=, id=calc_xocfat, document=/RocheRPS/applications/voice/VB_RP9050_TransferMessages.scxml"
-                        nolog="true">
-               <icview:result name="_ws.start_url" expr="_ws.start_url"/>
-               <icview:result name="_ws.next_vxml_url" expr="_ws.next_vxml_url"/>
-            </icview:log>
-         </onexit>
-         <transition cond="hasNoError()" target="log_fukxen">
-            <assign location="intv_eventName" expr="undefined"/>
-         </transition>
-      </state>
-      <state id="if_qujrek">
-         <onentry>
-            <icview:log text="action=entry, type=If, name=AccuChek_Check, id=if_qujrek, document=/RocheRPS/applications/voice/VB_RP9050_TransferMessages.scxml">
-               <icview:param name="AccuChek"
-                             value="_ws.gateKeeper.getString(&#34;TransferReason&#34;) == 'Accuchek'"/>
-            </icview:log>
-         </onentry>
-         <onexit>
-            <icview:log text="action=exit, type=If, name=AccuChek_Check, id=if_qujrek, document=/RocheRPS/applications/voice/VB_RP9050_TransferMessages.scxml"
-                        nolog="true"/>
-         </onexit>
-         <transition cond="_ws.gateKeeper.getString(&#34;TransferReason&#34;) == 'Accuchek'"
-                     target="calc_xocfat">
-            <icview:log text="action=leg:AccuChek, type=If, name=AccuChek_Check, id=if_qujrek, document=/RocheRPS/applications/voice/VB_RP9050_TransferMessages.scxml"/>
-         </transition>
-         <transition cond="true" target="if_doxnuz">
-            <icview:log text="action=leg:default, type=If, name=AccuChek_Check, id=if_qujrek, document=/RocheRPS/applications/voice/VB_RP9050_TransferMessages.scxml"/>
-         </transition>
-      </state>
-      <state xmlns:control="http://www.intervoice.com/sce/action/control"
-             id="subdialog_toqkiv">
-         <initial>
-            <transition target="external_subdialog_toqkiv"/>
-         </initial>
-         <onentry>
-            <icview:log text="action=entry, type=Subdialog, name=, id=subdialog_toqkiv, document=/RocheRPS/applications/voice/VB_RP9050_TransferMessages.scxml"/>
-            <assign location="intv_eventName" expr="undefined"/>
-         </onentry>
-         <onexit>
-            <icview:log text="action=exit, type=Subdialog, name=, id=subdialog_toqkiv, document=/RocheRPS/applications/voice/VB_RP9050_TransferMessages.scxml"
-                        nolog="true"/>
-         </onexit>
-         <state id="external_subdialog_toqkiv">
-            <onentry intv:abortonerror="true">
-               <assign location="result" expr="undefined"/>
-               <vca:external src="_ws.next_vxml_url" resultName="'result'" formName="'subdialog_toqkiv'"/>
-            </onentry>
-            <transition event="vca:success" target="voiceEnd_yolfor">
-               <assign location="intv_eventName" expr="'Success'"/>
-               <assign location="intv_eventData" expr="_eventdata"/>
-               <assign location="result" expr="_eventdata.result"/>
-               <icview:log text="action=leg:vca:success, type=Subdialog, name=, id=subdialog_toqkiv, document=/RocheRPS/applications/voice/VB_RP9050_TransferMessages.scxml">
-                  <icview:result name="resultVariable" expr="result"/>
-               </icview:log>
-            </transition>
-            <transition event="vca:error.unhandled" target="voiceEnd_yolfor">
-               <assign location="intv_eventName" expr="'Ignore'"/>
-               <assign location="intv_eventData" expr="_eventdata"/>
-               <icview:log text="action=leg:ignore:Error:vca:error.unhandled, type=Subdialog, name=, id=subdialog_toqkiv, document=/RocheRPS/applications/voice/VB_RP9050_TransferMessages.scxml"/>
-            </transition>
-            <transition event="vca:error.general" target="voiceEnd_yolfor">
-               <assign location="intv_eventName" expr="'Ignore'"/>
-               <assign location="intv_eventData" expr="_eventdata"/>
-               <icview:log text="action=leg:ignore:Error:vca:error.general, type=Subdialog, name=, id=subdialog_toqkiv, document=/RocheRPS/applications/voice/VB_RP9050_TransferMessages.scxml"/>
-            </transition>
-         </state>
-      </state>
-      <state id="voiceEnd_yolfor">
-         <initial>
-            <transition target="doDisconnect_voiceEnd_yolfor"/>
-         </initial>
-         <onentry>
-            <icview:log text="action=entry, type=VoiceEnd, name=, id=voiceEnd_yolfor, document=/RocheRPS/applications/voice/VB_RP9050_TransferMessages.scxml"/>
-            <assign location="intv_eventName" expr="undefined"/>
-         </onentry>
-         <onexit>
-            <icview:log text="action=exit, type=VoiceEnd, name=, id=voiceEnd_yolfor, document=/RocheRPS/applications/voice/VB_RP9050_TransferMessages.scxml"
-                        nolog="true"/>
-         </onexit>
-         <state id="doDisconnect_voiceEnd_yolfor">
-            <onentry>
-               <vca:disconnect formName="'voiceEnd_yolfor'"/>
-               <scripting:script><![CDATA[
-						icsession.setProperty("intv_vca_disconnect", true);
-					]]></scripting:script>
-            </onentry>
-            <transition event="vca:*" target="activateHangup_voiceEnd_yolfor">
-               <icview:log text="action=leg:vca:*, type=VoiceEnd, name=, id=voiceEnd_yolfor, document=/RocheRPS/applications/voice/VB_RP9050_TransferMessages.scxml"/>
-            </transition>
-         </state>
-         <state id="activateHangup_voiceEnd_yolfor">
-            <onentry>
-               <send target="'top'" event="'vca:hangup'"/>
-            </onentry>
-            <transition event="send.successful" target="documentExit"/>
-         </state>
-      </state>
-      <state id="log_fukxen">
-         <onentry>
-            <icview:log text="action=entry, type=Log, name=Event, id=log_fukxen, document=/RocheRPS/applications/voice/VB_RP9050_TransferMessages.scxml"/>
-            <log expr="'EVENT: Call routed to AccuChek application'  + ' | CallID: ' + _ws.session.connection.callid"
-                 label="'Default'"/>
-         </onentry>
-         <onexit>
-            <icview:log text="action=exit, type=Log, name=Event, id=log_fukxen, document=/RocheRPS/applications/voice/VB_RP9050_TransferMessages.scxml"
-                        nolog="true"/>
-         </onexit>
-         <transition cond="hasNoError()" target="subdialog_toqkiv">
-            <icview:log text="action=leg:default, type=Log, name=Event, id=log_fukxen, document=/RocheRPS/applications/voice/VB_RP9050_TransferMessages.scxml"/>
-         </transition>
       </state>
       <state id="if_madkis">
          <onentry>
@@ -907,7 +788,8 @@
          <onentry>
             <icview:log text="action=entry, type=Transfer, name=Cisco_BlindTransfer, id=transfer_cezkar, document=/RocheRPS/applications/voice/VB_RP9050_TransferMessages.scxml"/>
             <assign location="intv_eventName" expr="undefined"/>
-            <vca:transfer type="'blind'" destexpr="_ws.blindXferString" aaiexpr="'INTVEXT=true;'"/>
+            <vca:transfer type="'blind'" destexpr="_ws.blindXferString"
+                          aaiexpr="'INTVEXT=true;callProgress='+false+';transferAudioRepeat='+false+';'"/>
          </onentry>
          <onexit>
             <icview:log text="action=exit, type=Transfer, name=Cisco_BlindTransfer, id=transfer_cezkar, document=/RocheRPS/applications/voice/VB_RP9050_TransferMessages.scxml"

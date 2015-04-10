@@ -209,6 +209,9 @@ _ws.vm.addDisconfirmPromptGroup('2', 'sequence', false);
   _ws.vm.addMenuItem('taqman', 'CHOICE',  'null', promptArray);
 }
 {
+  _ws.vm.addMenuItemConfirmNever('cobasacademy','CHOICE','null');
+}
+{
   var promptArray = [];
   var promptCounter = 0;
   promptArray[promptCounter++] = [ 'c_1', 'messageid' ];  /* You wanted a support specialist, is that right?  Yes or no? */

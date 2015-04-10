@@ -1,10 +1,5 @@
 // FASTPATH GENERATED FILE - DO NOT EDIT
-
-
 _ws.vm = new _intv_VoiceModule(_ws, 'ID3450_ITBloodGasProductName');
-
-
-
 
 _ws.vm.addInitialPromptGroup();
   // IFCONDITION: If Task = AgentRequest

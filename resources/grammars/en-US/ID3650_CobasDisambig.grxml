@@ -348,6 +348,15 @@
           
 			<tag>CHOICE='omnis'</tag>
 		</item> 
+		
+		<item> 
+            <one-of>
+			<item>academy</item>
+			<item>cobas academy</item>
+            </one-of>
+          
+			<tag>CHOICE='cobasacademy'</tag>
+		</item>
        
         <item> 
             <one-of>
